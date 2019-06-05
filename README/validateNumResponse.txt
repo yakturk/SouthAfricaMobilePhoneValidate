@@ -1,0 +1,11 @@
+[{
+"name":"NUMBER OF INVALID NUMBERS",
+"count":1,
+"numbers"[
+{
+"id":"103343262",
+"smsPhone":"6478342944",
+"status":"INVALID",
+"smsPhoneAfterFix":null,
+"fixStatus":"NOT_VALIDATED_NOT_APPROPRIATE_FOR_REGEX"}
+]}]
