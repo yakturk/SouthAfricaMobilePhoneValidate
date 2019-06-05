@@ -1,0 +1,60 @@
+Project Name: AfricanNumberValidator
+Project Goal: Validate phone numbers and if possible fix according to rules of South Africa Mobile Number
+
+------------------------------- Project Technical Detail --------------------------
+
+MobileNumberController is a Rest Controller that provides 2 endpoints:
+1) "/validateNumbers" -> gets a csv file and returns a ResponseEntity which contains statistic result as a JSON. It saves all data into table of MobileNumber in DB.(EMbeded H2)
+2) "/validateNumber"  -> gets a csv file which contains only one phone number and returns a ResponseEntity which contains a statistic result as a JSON. It does not save into DB.
+
+There are Services:
+1) CSVFileUploadService : It has one function to be used:
+ processCsvFile -> If file is not a csv file throws NotAcceptableFileExtension. 
+ 				   If it has wrong format, throws InvalidFileFormatException. 
+ 				   It reads the csv file and converts into objects of MobileNumberRequest and returns as a List.
+
+2) MobileNumberService : It has one function to be used:
+ convertToMobileNumber -> receives the list that CSVFileUploadService creates. 
+                          Converts all MobileNumberRequest to object of MobileNumber.
+                          While converting, checks if it is valid number or not. So, update statuses of MobileNumbers.
+                          If converts, returns true.
+
+3) SouthAfricaNumberValidateService : It has two functions to be used:
+ isMatches -> returns true, if MobileNumber is appropriate for South Africa Mobile Number Format
+ isFixed   -> returns true, if invalid MobileNumber can be fixed.
+              If it fixed a number, updates MobileNumber
+
+
+MobileNumberRequest : It is used to parse request. The request file has only those variables
+Variables -> String id, String smsPhone 
+
+MobileNumber : It is used to keep data in DB. It is an Entity. All statistical data are created from that table.
+String id -> phone id which is received by request
+String smsPhone -> phone number which is received by request
+Status status -> during convert operation, it is set from one these: VALID, INVALID, FIXED
+String smsPhoneAfterFix -> during convert operation, if it is fixed, new number is set
+FixStatus fixStatus -> during convert operation, it is set from one of these: PREFIX_ADDED, ALREADY_VALID, NOT_VALIDATED_NOT_APPROPRIATE_FOR_REGEX
+
+---------------------------------------------------------------------------------
+
+Number Convert Operation: It is done by SouthAfricaNumberValidateService and MobileNumberService
+Valid mobile number formats: +27832762842 | 27832762842 | 0832762842
+To fix a number: It checks that if the number does not have a prefix, It adds a prefix. Default frefix is 27. 
+
+
+---------------------------------- To Test ----------------------------------------
+You can use postman
+1) Open the project (I use intellij)
+2) Run "MobileNumberValidatorApplication"
+3) See "Started MobileNumberValidatorApplication ... " on the console
+4) Open Postman and change Request type as a "Post" 
+5) write request url: localhost:8080/validateNumbers
+6) go to "body" tap on the Postman, and write "file" into KEY area and change type as "File". Click "chooseFile" and select your csv file. As an example you can use "africaValidateNums.csv"
+7) on the Postman, click "SEND" button.
+8) you will see statistic result in JSON format. To see the result you can check validateNumbersResponse.txt
+
+Note: If you want to check if a number is valid, you can use that url: localhost:8080/validateNumber
+It just checks and returns a response. It does not save to db.
+To see the result, you can check validateNumberResponse.txt
+To test that endpoint, you can use "africaValidateNum.csv"
+---------------------------------------------------------------------------------------

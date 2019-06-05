@@ -1,0 +1,14 @@
+/Users/yasemin.akturk/Desktop/test/AfricanNumberValidator/src/main/java/com/number/validator/demo/constant/FixStatus.java
+/Users/yasemin.akturk/Desktop/test/AfricanNumberValidator/src/main/java/com/number/validator/demo/service/SouthAfricaNumberValidateService.java
+/Users/yasemin.akturk/Desktop/test/AfricanNumberValidator/src/main/java/com/number/validator/demo/entity/request/MobileNumberRequest.java
+/Users/yasemin.akturk/Desktop/test/AfricanNumberValidator/src/main/java/com/number/validator/demo/exception/InvalidFileFormatException.java
+/Users/yasemin.akturk/Desktop/test/AfricanNumberValidator/src/main/java/com/number/validator/demo/exception/NotAcceptableFileExtension.java
+/Users/yasemin.akturk/Desktop/test/AfricanNumberValidator/src/main/java/com/number/validator/demo/controller/MobileNumberController.java
+/Users/yasemin.akturk/Desktop/test/AfricanNumberValidator/src/main/java/com/number/validator/demo/service/CSVFileUploadService.java
+/Users/yasemin.akturk/Desktop/test/AfricanNumberValidator/src/main/java/com/number/validator/demo/MobileNumberValidatorApplication.java
+/Users/yasemin.akturk/Desktop/test/AfricanNumberValidator/src/main/java/com/number/validator/demo/constant/Status.java
+/Users/yasemin.akturk/Desktop/test/AfricanNumberValidator/src/main/java/com/number/validator/demo/service/StatisticalResultCreator.java
+/Users/yasemin.akturk/Desktop/test/AfricanNumberValidator/src/main/java/com/number/validator/demo/repository/MobileNumbersRepository.java
+/Users/yasemin.akturk/Desktop/test/AfricanNumberValidator/src/main/java/com/number/validator/demo/entity/response/MobileNumberResponse.java
+/Users/yasemin.akturk/Desktop/test/AfricanNumberValidator/src/main/java/com/number/validator/demo/service/MobileNumberService.java
+/Users/yasemin.akturk/Desktop/test/AfricanNumberValidator/src/main/java/com/number/validator/demo/entity/MobileNumber.java

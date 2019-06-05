@@ -1,0 +1,5 @@
+com/number/validator/demo/service/SouthAfricaNumberValidateServiceTest.class
+com/number/validator/demo/MobileNumberValidatorApplicationTests.class
+com/number/validator/demo/service/MobileNumberServiceTest.class
+com/number/validator/demo/controller/MobileNumberControllerTest.class
+com/number/validator/demo/service/CSVFileUploadServiceTest.class
